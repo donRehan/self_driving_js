@@ -41,11 +41,11 @@ class Car{
 	}
 
 	if(this.controls.right){
-		this.x -= 0.03;
+		this.angle += 0.01;
 	}
 
 	if(this.controls.left){
-		this.angle += 0.03;
+		this.angle -= 0.01;
 	}
 
 	this.y -= this.speed;
@@ -55,6 +55,7 @@ class Car{
 		ctx.save();
 		ctx.translate(this.x,this.y);
 		ctx.rotate(-this.angle);
+
 		ctx.beginPath();
 		ctx.rect(
 			this.x-this.width/2,
@@ -63,5 +64,7 @@ class Car{
 			this.height
 		);
 		ctx.fill();
+
+		ctx.restore();
 	}
 }
